@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morse Code Converter - Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        nav {
+            background: #f8f9fa;
+            border-bottom: 1px solid #ddd;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-right: 1px solid #ddd;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background: #e9ecef;
+        }
+        nav a:last-child {
+            border-right: none;
+        }
+        .content {
+            padding: 40px;
+        }
+        .section {
+            margin-bottom: 40px;
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+        h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #764ba2;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        pre {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        code {
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+        pre code {
+            color: #333;
+        }
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .feature-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        table td {
+            border-bottom: 1px solid #ddd;
+            padding: 12px;
+        }
+        table tr:hover {
+            background: #f8f9fa;
+        }
+        .highlight {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px;
+            margin: 15px 0;
+        }
+        footer {
+            background: #f8f9fa;
+            border-top: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            color: #666;
+        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔤 Morse Code Converter</h1>
+            <p>Complete documentation & API reference</p>
+        </header>
+
+        <nav>
+            <a href="#" onclick="showSection('overview')">Overview</a>
+            <a href="#" onclick="showSection('installation')">Installation</a>
+            <a href="#" onclick="showSection('usage')">Usage</a>
+            <a href="#" onclick="showSection('api')">API Reference</a>
+            <a href="#" onclick="showSection('examples')">Examples</a>
+            <a href="#" onclick="showSection('faq')">FAQ</a>
+        </nav>
+
+        <div class="content">
+            <!-- Overview Section -->
+            <div id="overview" class="section active">
+                <h2>Overview</h2>
+                <p>Morse Code Converter is a lightweight C++ utility that converts text to Morse code and vice versa. Perfect for learning, amateur radio enthusiasts, and developers.</p>
+                
+                <h3>Features</h3>
+                <ul class="feature-list">
+                    <li>Convert text to Morse code</li>
+                    <li>Convert Morse code back to text</li>
+                    <li>Interactive menu-driven interface</li>
+                    <li>File I/O support (load & save)</li>
+                    <li>Support for 40+ characters</li>
+                    <li>Word separation with /</li>
+                    <li>Efficient lookups with unordered_map</li>
+                    <li>Object-oriented design</li>
+                </ul>
+
+                <h3>Supported Characters</h3>
+                <table>
+                    <tr>
+                        <th>Category</th>
+                        <th>Characters</th>
+                    </tr>
+                    <tr>
+                        <td>Letters</td>
+                        <td>A–Z (case-insensitive)</td>
+                    </tr>
+                    <tr>
+                        <td>Digits</td>
+                        <td>0–9</td>
+                    </tr>
+                    <tr>
+                        <td>Punctuation</td>
+                        <td>. , ? : ; - / " ' ( ) = + $ _ @</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Installation Section -->
+            <div id="installation" class="section">
+                <h2>Installation</h2>
+                <h3>Requirements</h3>
+                <ul class="feature-list">
+                    <li>C++17 capable compiler (GCC 7+, Clang 5+, MSVC 2017+)</li>
+                    <li>Make (optional, for Makefile)</li>
+                </ul>
+
+                <h3>Build from Source</h3>
+                <pre><code>git clone https://github.com/HarshYadav/Morse-Code.git
+cd Morse-Code
+g++ -std=c++17 MorseCodeConverter.cpp -O2 -o morse</code></pre>
+
+                <h3>Using Makefile</h3>
+                <pre><code>make        # Build the project
+make run    # Build and run
+make clean  # Remove build artifacts</code></pre>
+
+                <div class="highlight">
+                    <strong>Note:</strong> On Windows, use MinGW or WSL for compilation.
+                </div>
+            </div>
+
+            <!-- Usage Section -->
+            <div id="usage" class="section">
+                <h2>Usage</h2>
+                <h3>Running the Program</h3>
+                <pre><code>./morse</code></pre>
+
+                <h3>Interactive Menu</h3>
+                <p>After running the program, you'll see this menu:</p>
+                <pre><code>====== Morse Code Converter ======
+1. Convert Text to Morse
+2. Convert Morse to Text
+3. Load from File
+4. Save to File
+5. Exit
+==================================</code></pre>
+
+                <h3>Menu Options</h3>
+                <table>
+                    <tr>
+                        <th>Option</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Converts plain text input to Morse code</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Decodes space-separated Morse code to text</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Load text from a file</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Save Morse code output to a file</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Exit the program</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- API Reference Section -->
+            <div id="api" class="section">
+                <h2>API Reference</h2>
+                <h3>MorseConverter Class</h3>
+                
+                <h3>Constructor</h3>
+                <pre><code>MorseConverter();</code></pre>
+                <p>Initializes the converter with Morse code mappings.</p>
+
+                <h3>Methods</h3>
+                <h4>textToMorse()</h4>
+                <pre><code>string textToMorse(const string& text);</code></pre>
+                <p><strong>Description:</strong> Converts plain text to Morse code.</p>
+                <p><strong>Parameters:</strong> text - Input text string</p>
+                <p><strong>Returns:</strong> Space-separated Morse code</p>
+
+                <h4>morseToText()</h4>
+                <pre><code>string morseToText(const string& morse);</code></pre>
+                <p><strong>Description:</strong> Converts Morse code back to text.</p>
+                <p><strong>Parameters:</strong> morse - Space-separated Morse code</p>
+                <p><strong>Returns:</strong> Decoded text string</p>
+
+                <h4>saveToFile()</h4>
+                <pre><code>void saveToFile(const string& filename, const string& content);</code></pre>
+                <p><strong>Description:</strong> Saves content to a file.</p>
+                <p><strong>Parameters:</strong> filename - Output file path, content - Text to save</p>
+
+                <h4>loadFromFile()</h4>
+                <pre><code>string loadFromFile(const string& filename);</code></pre>
+                <p><strong>Description:</strong> Loads content from a file.</p>
+                <p><strong>Parameters:</strong> filename - Input file path</p>
+                <p><strong>Returns:</strong> File contents as string</p>
+            </div>
+
+            <!-- Examples Section -->
+            <div id="examples" class="section">
+                <h2>Examples</h2>
+                
+                <h3>Example 1: Text to Morse</h3>
+                <pre><code>Input:  HELLO WORLD
+Output: .... . .-.. .-.. --- / .-- --- .-. .-.. -..</code></pre>
+
+                <h3>Example 2: Morse to Text</h3>
+                <pre><code>Input:  .... . .-.. .-.. --- / .-- --- .-. .-.. -..
+Output: HELLO WORLD</code></pre>
+
+                <h3>Example 3: With Digits</h3>
+                <pre><code>Input:  TEST 123
+Output: - . ... - / .---- ..--- ...--</code></pre>
+
+                <h3>Example 4: With Punctuation</h3>
+                <pre><code>Input:  HELLO?
+Output: .... . .-.. .-.. --- ..--..</code></pre>
+            </div>
+
+            <!-- FAQ Section -->
+            <div id="faq" class="section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <h3>What is Morse code?</h3>
+                <p>Morse code is a method of transmitting information using sequences of dots and dashes. It's represented here as "." and "-" characters.</p>
+
+                <h3>How do I separate words in Morse code?</h3>
+                <p>Words are separated by "/" in the Morse code output. When entering Morse code, spaces separate characters and "/" separates words.</p>
+
+                <h3>What happens if I enter an unsupported character?</h3>
+                <p>Unsupported characters are represented as "?" in the output. The program supports 40+ common characters.</p>
+
+                <h3>Can I use lowercase letters?</h3>
+                <p>Yes! The program converts all input to uppercase automatically before processing.</p>
+
+                <h3>How do I save/load files?</h3>
+                <p>Use menu options 3 and 4. Provide the filename when prompted, and the program will handle file operations.</p>
+
+                <h3>Is this project open source?</h3>
+                <p>Yes! This project is licensed under the MIT License. Contributions are welcome!</p>
+
+                <h3>How can I contribute?</h3>
+                <p>See <code>CONTRIBUTING.md</code> in the repository for guidelines.</p>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Harsh Yadav | <a href="https://github.com/HarshYadav/Morse-Code" style="color: #667eea; text-decoration: none;">GitHub Repository</a></p>
+        </footer>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // Show selected section
+            const selected = document.getElementById(sectionId);
+            if (selected) {
+                selected.classList.add('active');
+            }
+
+            // Smooth scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
