@@ -1,0 +1,22 @@
+# Build output
+*.o
+*.out
+morse
+*.exe
+*.a
+*.so
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backup
+*.bak
+*.backup
